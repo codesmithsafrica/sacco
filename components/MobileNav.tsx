@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
 import { signOut } from "next-auth/react";
-import logo from "../app/logo_new.png";
+import logo from "../public/vercel.svg";
 import { useColorModeValue } from "./ui/color-mode";
 import {
   MenuContent,

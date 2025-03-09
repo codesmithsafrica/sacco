@@ -17,7 +17,7 @@ import { FaSchool, FaChalkboardTeacher } from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
-import logo from "../app/logo_new.png"
+import logo from "../public/vercel.svg"
 // import { ReactText } from "react";
 import { IconType } from "react-icons";
 import AddItemModal from "@/components/AddUserModal"
@@ -37,8 +37,8 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
     { name: "Dashboard", path: "/dashboard", icon: FiHome },
-    { name: "My Contributions", path: "/hospitals", icon: FaSchool },
-    { name: "Loans", path: "/students", icon: PiStudentFill },
+    { name: "My Contributions", path: "/dashboard", icon: FaSchool },
+    { name: "Loans", path: "/dashboard", icon: PiStudentFill },
 
 
 ];
@@ -46,7 +46,7 @@ const LinkItems: Array<LinkItemProps> = [
 const LinkItemsAdmin: Array<LinkItemProps> = [
     { name: "Dashboard", path: "/dashboard", icon: FiHome },
     { name: "Members", path: "/members", icon: PiStudentFill },
-    { name: "Contributions", path: "/sessions", icon: FaChalkboardTeacher },
+    { name: "Contributions", path: "/dashboard", icon: FaChalkboardTeacher },
 
 ];
 
