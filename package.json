@@ -6,6 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "vercer-build": "prisma generate && next build",
+       "postinstall": "prisma generate && next build",
     "lint": "next lint",
        "seed": "node prisma/seed.ts"
   },

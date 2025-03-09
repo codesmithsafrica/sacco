@@ -22,27 +22,7 @@ async function main() {
         });
     });
 
-    //@ts-ignore
-    // bcrypt.genSalt(saltRounds, function (err, salt) {
-    //     //@ts-ignore
-    //     bcrypt.hash(myPlaintextPassword, salt, function (err, hash) {
-    //         // Store hash in your password DB.
-    //         //create super user
-    //         const admin = prismadb.db.user.upsert({
-    //             where: { code: 'super@admin' },
-    //             update: {},
-    //             create: {
-    //                 email: 'admin@mekaela.io',
-    //                 role: prismadb.ADMIN,
-    //                 password: hash,
 
-    //             },
-    //         })
-    //         console.log(' admin pass ->', hash)
-
-
-    //     });
-    // });
 
 }
 main()
