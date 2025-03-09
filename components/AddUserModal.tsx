@@ -16,7 +16,7 @@ import {
     NativeSelect,
     Stack,
     Input,
-    Select,
+  
     Button,
     Flex,
 
@@ -31,16 +31,16 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-import { Toaster, toaster } from "@/components/ui/toaster"
+import {  toaster } from "@/components/ui/toaster"
 
 const AddItemModal: React.FC = () => {
-    const { open, onOpen, onClose } = useDisclosure();
-    const { handleSubmit, register } = useForm();
+    const { onOpen, onClose } = useDisclosure();
+    const { handleSubmit } = useForm();
     const [fname, setFName] = useState("");
     const [lname, setLName] = useState("");
     const [email, setEmail] = useState("");
     const [code, setCode] = useState(null);
-    const [category_id, setCategoryId] =  useState<any>(null);
+    const [category_id, setCategoryId] =  useState<string|undefined>('');
 
 
 

@@ -13,7 +13,7 @@ import { useColorModeValue,useColorMode } from './ui/color-mode'
 import Image from "next/image";
 import { FiHome } from "react-icons/fi";
 import { FaSchool, FaChalkboardTeacher } from "react-icons/fa";
-import { FaUserTie } from "react-icons/fa6";
+// import { FaUserTie } from "react-icons/fa6";
 import { PiStudentFill } from "react-icons/pi";
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
@@ -27,6 +27,7 @@ import AddItemModal from "@/components/AddUserModal"
 interface NavItemProps {
     icon: IconType;
     path: string;
+       // eslint-disable-next-line
     children: any;
 }
 interface LinkItemProps {
