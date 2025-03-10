@@ -7,15 +7,17 @@
     "build": "next build",
     "start": "next start",
     "vercer-build": "prisma generate && next build",
-       "postinstall": "prisma generate && next build",
+    "postinstall": "prisma generate && next build",
     "lint": "next lint",
-       "seed": "node prisma/seed.ts"
+    "seed": "node prisma/seed.ts"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.9.0",
     "@emotion/react": "^11.14.0",
     "@prisma/client": "^6.4.1",
     "@types/bcrypt": "^5.0.2",
+    "axios": "^1.8.2",
     "bcrypt": "^5.1.1",
     "next": "15.2.1",
     "next-auth": "^4.24.11",

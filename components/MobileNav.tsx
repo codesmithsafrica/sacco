@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import {
   IconButton,
   Box,
@@ -7,14 +6,13 @@ import {
   Button,
   HStack,
   VStack,
-
   Text,
   FlexProps,
 
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
 import { signOut } from "next-auth/react";
-import logo from "../public/vercel.svg";
+
 import { useColorModeValue } from "./ui/color-mode";
 import {
   MenuContent,
@@ -42,6 +40,7 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, session }) => {
       justifyContent={{ base: "space-between", md: "flex-end" }}
       //   {...rest}
     >
+   
       <IconButton
         display={{ base: "flex", md: "none" }}
         onClick={onOpen}
@@ -58,14 +57,7 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, session }) => {
       >
         <Text> Sacco</Text>
       </Box>
-      <Box
-        display={{ base: "none", md: "none" }}
-        fontSize="xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-      >
-        <Image alt={"Login Image"} objectFit={"cover"} src={logo} />
-      </Box>
+     
       <HStack
       //@ts-expect-error:fix
        spacing={{ base: "0", md: "6" }}>
@@ -74,7 +66,7 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, session }) => {
 
           <MenuRoot>
             <MenuTrigger asChild>
-              <Button variant="outline" size="sm">
+              <Button variant="ghost"  size="sm">
                 <HStack>
                   <VStack
                     display={{ base: "flex", md: "flex" }}

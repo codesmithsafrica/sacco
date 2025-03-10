@@ -3,21 +3,21 @@ import {
     Box,
     CloseButton,
     Flex,
-  
+
     BoxProps,
-    
+    Text,
     Link,
     Icon,
 } from "@chakra-ui/react";
-import { useColorModeValue,useColorMode } from './ui/color-mode'
-import Image from "next/image";
+import { useColorModeValue, useColorMode } from './ui/color-mode'
+
 import { FiHome } from "react-icons/fi";
 import { FaSchool, FaChalkboardTeacher } from "react-icons/fa";
 // import { FaUserTie } from "react-icons/fa6";
 import { PiStudentFill } from "react-icons/pi";
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
-import logo from "../public/vercel.svg"
+
 // import { ReactText } from "react";
 import { IconType } from "react-icons";
 import AddItemModal from "@/components/AddUserModal"
@@ -27,7 +27,7 @@ import AddItemModal from "@/components/AddUserModal"
 interface NavItemProps {
     icon: IconType;
     path: string;
-       // eslint-disable-next-line
+    // eslint-disable-next-line
     children: any;
 }
 interface LinkItemProps {
@@ -38,7 +38,7 @@ interface LinkItemProps {
 const LinkItems: Array<LinkItemProps> = [
     { name: "Dashboard", path: "/dashboard", icon: FiHome },
     { name: "My Contributions", path: "/dashboard", icon: FaSchool },
-    { name: "Loans", path: "/dashboard", icon: PiStudentFill },
+    { name: "Loans", path: "/contributions", icon: PiStudentFill },
 
 
 ];
@@ -46,7 +46,7 @@ const LinkItems: Array<LinkItemProps> = [
 const LinkItemsAdmin: Array<LinkItemProps> = [
     { name: "Dashboard", path: "/dashboard", icon: FiHome },
     { name: "Members", path: "/members", icon: PiStudentFill },
-    { name: "Contributions", path: "/dashboard", icon: FaChalkboardTeacher },
+    { name: "Contributions", path: "/contributions", icon: FaChalkboardTeacher },
 
 ];
 
@@ -81,10 +81,14 @@ const SidebarContent = ({ onClose, session, display }: SidebarProps) => {
             >
                 <Box
                 >
-
-                    <Image
-                        height={100}
-                        alt={"Login Image"} objectFit={"cover"} src={logo} />
+                    <Box
+                        display={{ base: "flex", md: "flex" }}
+                        fontSize="xl"
+                        fontFamily="monospace"
+                        fontWeight="bold"
+                    >
+                        <Text> Sacco</Text>
+                    </Box>
 
                 </Box>
                 <Box
@@ -98,16 +102,16 @@ const SidebarContent = ({ onClose, session, display }: SidebarProps) => {
                 <NavItem key={link.name} path={link.path} icon={link.icon}>
                     {link.name}
                 </NavItem>
-            ))}</>) :  (<>      {LinkItems.map((link) => (
+            ))}</>) : (<>      {LinkItems.map((link) => (
                 <NavItem key={link.name} path={link.path} icon={link.icon}>
                     {link.name}
                 </NavItem>
             ))}</>)
-                }
+            }
             {session?.user?.role == 'SUPERADMIN' ? (<>
 
                 <AddItemModal />
-            </>)  : null}
+            </>) : null}
 
 
         </Box>
@@ -124,12 +128,12 @@ const NavItem = ({ icon, children, path }: NavItemProps) => {
 
     const style = {
         marginRight: 10,
-        
+
         bg: activeBg[colorMode],
         rounded: "sm",
         borderRadius: 4,
         // color: 'gray',
-   
+
         color: pathname === path ? activeColor[colorMode] : "gray",
         textDecoration: "none",
     };
@@ -149,7 +153,7 @@ const NavItem = ({ icon, children, path }: NavItemProps) => {
                 role="group"
                 cursor="pointer"
                 _hover={{
-                 
+
                     color: hoverColor[colorMode],
                     transform: "translateX(2px)",
                 }}
@@ -159,7 +163,7 @@ const NavItem = ({ icon, children, path }: NavItemProps) => {
                         mr="4"
                         fontSize="16"
                         _groupHover={{
-                       
+
                             color: hoverColor[colorMode],
                         }}
                         as={icon}

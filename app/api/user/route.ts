@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     let result2;
 
 
-    const adminPlaintextPassword = '$2b$12$MKiopWC2FI2RaIxKAlXRIe7KRaD/VIVdPY2D/iI7SHBkxJXoJT2e2';
+    const adminPlaintextPassword = '$2b$12$ONPS7J8u6CuhRvjCbo7WOOTvnQg4K.I48TEfQeJE9OC2gNLRoJhNy';
    
     const user = await db.user.create({
       data: {
@@ -23,17 +23,7 @@ export async function POST(request: Request) {
       
       },
       })
-      // const user2 =  db.user.create({
-      //   data: {
-      //     email: data?.email,
-      //     firstName: data?.firstName,
-      //     lastName:data?.lastName ,
-      //     code: data?.code,
-      //     role:UserRole.STUDENT,
-      //     password: adminPlaintextPassword,
-        
-      //   },
-      //   })
+
         console.log('user -->',user)
 
 try {  
