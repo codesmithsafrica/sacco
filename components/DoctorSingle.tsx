@@ -7,6 +7,7 @@ export type ItemProps = {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string
   school: string;
   hospital: string;
   guardianName: string;
@@ -43,7 +44,9 @@ const MemberSingle: React.FC<Props> = ({ item, }) => {
           {item.lastName}
         </Heading>
         <Spacer />
-        <Text>{item.email}</Text>
+        <Text mr={4}>{item.email}</Text>
+        <Text>{item.phone}</Text>
+      
 
       </Flex>
 
