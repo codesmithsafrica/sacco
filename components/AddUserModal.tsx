@@ -33,6 +33,7 @@ const AddItemModal: React.FC = () => {
     const [lname, setLName] = useState("");
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");
+    const [phone, setPhone] = useState("");
     const [open, setOpen] = useState(false)
   
 
@@ -43,6 +44,7 @@ const AddItemModal: React.FC = () => {
         setLName("");
         setEmail("");
         setCode("")
+        setPhone("")
 
     };
 
@@ -80,12 +82,12 @@ const AddItemModal: React.FC = () => {
                                 <form
                                     onSubmit={handleSubmit(async () => {
 
-                                        console.log('data', fname, lname, email, code, )
+                                        console.log('data', fname, lname, email, code,phone )
 
                                         const response = await fetch('/api/user', {
                                             method: 'POST',
 
-                                            body: JSON.stringify({ firstName: fname, lastName: lname, email: email, code: code }),
+                                            body: JSON.stringify({ firstName: fname, lastName: lname, email: email, code: code ,phone:phone,}),
                                         })
                                         const _data = await response.json()
                                         console.log('data', _data)
@@ -155,6 +157,17 @@ const AddItemModal: React.FC = () => {
                                                     placeholder="email"
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     type="email"
+                                                />
+                                            </Field>
+                                            <Field label="Phone Number">
+                                                <Input
+                                                    autoFocus
+
+                                                    variant="outline"
+                                                    value={phone}
+                                                    placeholder="phone"
+                                                    onChange={(e) => setPhone(e.target.value)}
+                                                    type="text"
                                                 />
                                             </Field>
 

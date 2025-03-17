@@ -15,8 +15,9 @@ export async function POST(request: Request) {
    
     const user = await db.user.create({
       data: {
-        email: data?.email,
+        email: data?.email?data?.email:null,
         firstName: data?.firstName,
+        phone: data?.phone ?data?.phone :null,
         lastName:data?.lastName ,
         code: data?.code,
         password: adminPlaintextPassword,
@@ -27,22 +28,6 @@ export async function POST(request: Request) {
         console.log('user -->',user)
 
 try {  
-
-  // console.log('data',data)
-  // const user = await db.user.create({
-  //   data: {
-  //     email: 'elsa@prisma.io',
-  //     firstName: 'Elsa Prisma',
-  //     lastName: 'Elsa Prisma',
-  //     code: 'Elsa Prisma',
-  //     password: 'Elsa Prisma',
-  // 789
-  // 16
-  // 789
-
-  //   },
-  // })
-
 
 
     return  NextResponse.json({ message: 'user created successfully',result1,result2});
