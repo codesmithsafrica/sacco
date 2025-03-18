@@ -87,7 +87,7 @@ const EditItemModal: React.FC<IProps> = ({ item }) => {
                                         const response = await fetch('/api/user/edit', {
                                             method: 'POST',
 
-                                            body: JSON.stringify({ firstName: fname, lastName: lname, email: email, code: code, phone: phone, }),
+                                            body: JSON.stringify({ id:item?.id ,firstName: fname, lastName: lname, email: email, code: code, phone: phone, }),
                                         })
                                         const _data = await response.json()
                                         console.log('data', _data)
