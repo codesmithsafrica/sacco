@@ -73,6 +73,7 @@ toaster.create({
           index={key}
           item={item} />
           <IconButton
+          bgColor={'red'}
             colorScheme='red'
             onClick={() => deleteSession(item?.id)}
             aria-label='Delete student'
