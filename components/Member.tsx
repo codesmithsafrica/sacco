@@ -5,7 +5,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import axios from "axios";
-import SearchBar from "@/components/SearchBar";
+// import SearchBar from "@/components/SearchBar";
 
 import App from "./App";
 import EmptySearch from "../components/EmptySearch";
@@ -30,7 +30,7 @@ export default function Member() {
     setSearch(valueWithoutSlash);
     return valueWithoutSlash;
   };
-
+ console.log('onserch',onSearch)
   // eslint-disable-next-line
   const matchesSearch = (item: any) =>
     item.firstName.toLowerCase().includes(search.toLowerCase()) || item.staffNumber.includes(search)
@@ -54,7 +54,7 @@ export default function Member() {
         {"Active "}
         <b>{"Members"}</b>
       </Text>
-      <SearchBar search={search} onSearch={onSearch} />
+      {/* <SearchBar search={search} onSearch={onSearch} /> */}
       {loading ? (
         <Flex pt={24} align="center" justify="center">
           {/* <Spinner size="xl" /> */}loading...

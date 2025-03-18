@@ -15,9 +15,9 @@ export async function POST(request: Request) {
    
     const user = await db.user.create({
       data: {
-        email: data?.email?data?.email:null,
+        email: data?.email ? data?.email: null,
         firstName: data?.firstName,
-        phone: data?.phone ?data?.phone :null,
+        phone: data?.phone ? data?.phone :null,
         lastName:data?.lastName ,
         code: data?.code,
         password: adminPlaintextPassword,

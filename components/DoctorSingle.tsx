@@ -1,13 +1,17 @@
 import React from "react";
-import { Box, Heading, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Box, Heading, Flex, Spacer, Text ,IconButton} from "@chakra-ui/react";
+// import {  DeleteIcon } from "@chakra-ui/icons";
+import EditItem from "../components/EditItem"
 // import ItemDetail from '@/components/ItemDetail'
+import { toaster,Toaster } from "@/components/ui/toaster"
 
 export type ItemProps = {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
-  phone: string
+  phone: string;
+  code: string;
   school: string;
   hospital: string;
   guardianName: string;
@@ -16,15 +20,32 @@ export type ItemProps = {
 };
 interface Props {
   item: ItemProps;
+  key:string;
   myItem?: boolean;
 }
 
 
 
-const MemberSingle: React.FC<Props> = ({ item, }) => {
+const MemberSingle: React.FC<Props> = ({ item,key }) => {
+ 
+  async function deleteSession(id: number) {
+    console.log('id', id)
+    const response = await fetch('/api/user/delete', {
+      method: 'POST',
+      body: JSON.stringify({ id }),
+    })
+    const _data = await response.json()
+    console.log('data', _data)
+toaster.create({
+  description: "Member deleted successfully",
+  type: "success",
+})
+  }
 
   return (
-    <Box
+    <>
+     <Toaster      />
+        <Box
       _hover={{
         transform: "translateY(-3px)",
         boxShadow: "dark-lg",
@@ -46,11 +67,22 @@ const MemberSingle: React.FC<Props> = ({ item, }) => {
         <Spacer />
         <Text mr={4}>{item.email}</Text>
         <Text>{item.phone}</Text>
+        <Spacer />
       
-
+        <EditItem
+          index={key}
+          item={item} />
+          <IconButton
+            colorScheme='red'
+            onClick={() => deleteSession(item?.id)}
+            aria-label='Delete student'
+         
+          />
       </Flex>
 
     </Box>
+    </>
+
   );
 };
 
