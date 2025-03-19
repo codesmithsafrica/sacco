@@ -30,7 +30,7 @@ export default function Member() {
     setSearch(valueWithoutSlash);
     return valueWithoutSlash;
   };
- console.log('onserch',onSearch)
+  console.log('onserch', onSearch)
   // eslint-disable-next-line
   const matchesSearch = (item: any) =>
     item.firstName.toLowerCase().includes(search.toLowerCase()) || item.code.includes(search)
@@ -38,15 +38,19 @@ export default function Member() {
   const baseURL = `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/members`;
   React.useEffect(() => {
     setLoading(true)
-    axios.get(baseURL).then((response:any) => {
+    axios.get(baseURL).then((response: any) => {
       setLivestream(response?.data);
       console.log('doctors', response)
     });
     setLoading(false)
   }, [livestream]);
 
+
   const filteredItems = livestream?.members
     .filter(matchesSearch)
+  React.useEffect(() => {
+
+  }, [filteredItems]);
   return (
     <App session={session}>
 
@@ -63,7 +67,7 @@ export default function Member() {
         <>
           {filteredItems?.length && !loading ? (
             // eslint-disable-next-line
-            filteredItems?.map((item: any, index: any) => <DoctorSingle key={index} item={item} />)
+            filteredItems?.map((item: any, index: any) => <DoctorSingle key={item?.id} item={item} />)
           ) : loading && livestream?.members == undefined ? (
             <Flex pt={24} align="center" justify="center">
               {/* <Spinner size="xl"/> */}loading...

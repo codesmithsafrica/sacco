@@ -30,7 +30,10 @@ type IProps = {
     index?: string
 };
 const EditItemModal: React.FC<IProps> = ({ item }) => {
+    console.log('item-->',item)
+  React.useEffect(() => {
 
+  }, [item]);
     const { handleSubmit } = useForm();
     const [fname, setFName] = useState(item?.firstName);
     const [lname, setLName] = useState(item?.lastName);
@@ -51,6 +54,7 @@ const EditItemModal: React.FC<IProps> = ({ item }) => {
     const onOpenDealModal = () => {
 
         setOpen(true);
+        console.log('open',item)
     };
 
     return (
